@@ -1,4 +1,4 @@
-# WAR — A Card Game and Algorithm 
+# War — A Card Game and Algorithm 
 #### By _**Lisa Primeaux-Redmond**_
 
 
