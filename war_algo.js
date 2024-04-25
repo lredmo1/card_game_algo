@@ -163,10 +163,10 @@ const playerTwoCards1 = [9, 12, 8, 3, 11, 10, 1, 4, 2, 4, 7, 9, 13, 8, 2, 13, 7,
 const playerOneCards2 = [3, 11, 6, 12, 2, 13, 5, 7, 10, 3, 10, 4, 12, 11, 1, 13, 12, 2, 1, 7, 10, 6, 12, 5, 8, 1]
 const playerTwoCards2 = [9, 10, 7, 9, 5, 2, 6, 1, 11, 11, 7, 9, 3, 4, 8, 3, 4, 8, 8, 4, 6, 9, 13, 2, 13, 5]
 
-const playerOneCards3 = [1,2,3,4,5, 6,7,8,9,10,11,12,13,1,2,3,4,5, 6,7,8,9,10,11,12,13]
-const playerTwoCards3 = [1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,5, 6,7,8,9,10,11,12,13]
+const playerOneCards3 = [1, 2, 3, 4, 5,  6, 7, 8, 9, 10, 11, 12, 13, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+const playerTwoCards3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 
 
-console.log(battle(playerOneCards1, playerTwoCards1)) // expect 1
+console.log(battle(playerOneCards1,  playerTwoCards1)) // expect 1
 console.log(battle(playerOneCards2, playerTwoCards2)) // expect 2
 console.log(battle(playerOneCards3, playerTwoCards3)) // expect 3
