@@ -19,11 +19,11 @@ Both players place their next three cards face down, then a card face-up. The ow
 
 If, when a war begins...
 
-either player does not have enough cards for the war, both players reduce the number of cards to allow the war to complete (e.g. if P2 has only three cards remaining, both players play two cards down and one card up. If P2 has only one card remaining, no cards are played face-down and each player only plays one card up).
+...either player does not have enough cards for the war, both players reduce the number of cards to allow the war to complete (e.g. if P2 has only three cards remaining, both players play two cards down and one card up. If P2 has only one card remaining, no cards are played face-down and each player only plays one card up).
 
-either player has no cards remaining, the other player wins.
+...either player has no cards remaining, the other player wins.
 
-both players have no cards remaining, the game is a draw (this is exceptionally rare in random games).
+...both players have no cards remaining, the game is a draw (this is exceptionally rare in random games).
 
 ### Post-Battle/War
 
