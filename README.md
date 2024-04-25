@@ -2,10 +2,9 @@
 #### By _**Lisa Primeaux-Redmond**_
 
 
-#### This algorithm implements the classic card game [War](https://en.wikipedia.org/wiki/War_(card_game)) in JavaScript.
+This algorithm implements the classic card game [War](https://en.wikipedia.org/wiki/War_(card_game)) in JavaScript.
 You can run the three test cases with the command `node hmh_war_algo.js` in the command line.
-
-Below are the instructions for how to write the algorithm.
+Below are the instructions given for how to write the algorithm.
 
 ## Gameplay
 
@@ -14,7 +13,7 @@ This two player game is played using a standard 52-card deck. The objective of t
 This process is repeated until one player runs out of cards, at which point the other player is declared the winner.
 
 
-## War
+### War
 
 Both players place their next three cards face down, then a card face-up. The owner of the higher face-up card wins the war and adds all cards on the table to the bottom of their deck. If the face-up cards are again equal then the war repeats with another set of face-down/up cards, until one player's face-up card is higher than their opponent's, or both players run out of cards
 
@@ -24,7 +23,7 @@ either player does not have enough cards for the war, both players reduce the nu
 either player has no cards remaining, the other player wins.
 both players have no cards remaining, the game is a draw (this is exceptionally rare in random games).
 
-## Post-battle/war
+### Post-battle/war
 
 For consistency (so we all end up with the same result for the same input), cards used in a battle or war should be added to the bottom of the winner's deck in a particular order.
 
@@ -43,15 +42,15 @@ After a war or wars, cards used in the war(s) are added to the deck first, follo
 4.    Loser's face-up card
 
 
-## Input
+### Input
 
 Input will consist of two lines of space-separated integers in [1..13]. In a standard game, the two lines will each contain 26 numbers, and will be composed of four of each integer in [1..13]. However, your program should be able to handle decks of any size and composition. The first number on a line represents the top card in the deck, last number is the bottom.
 
-## Output
+### Output
 
 Output "1" if P1 wins, "2" if P2 wins, and "0" if P1 and P2 tied.
 
-## Challenge Inputs
+### Challenge Inputs
 
 5 1 13 10 11 3 2 10 4 12 5 11 10 5 7 6 6 11 9 6 3 13 6 1 8 1 
 9 12 8 3 11 10 1 4 2 4 7 9 13 8 2 13 7 4 2 8 9 12 3 12 7 5 
@@ -62,7 +61,7 @@ Output "1" if P1 wins, "2" if P2 wins, and "0" if P1 and P2 tied.
 1 2 3 4 5 6 7 8 9 10 11 12 13 1 2 3 4 5 6 7 8 9 10 11 12 13 
 1 2 3 4 5 6 7 8 9 10 11 12 13 1 2 3 4 5 6 7 8 9 10 11 12 13 
 
-## Challenge outputs
+### Challenge outputs
 
 1
 
