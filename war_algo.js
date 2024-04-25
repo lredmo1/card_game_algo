@@ -48,9 +48,7 @@ const battle = (arr1, arr2, breakOut) => {
 				
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
 				winner = battle(arr1.slice(0 + 4), arr2.slice(0 + 4), true)
-				// Exit the loop if the result is a tie
-				if (winner === 0) result = 0
-				// Otherwise add the necessary cards to the winner's deck
+				// Add the necessary cards to the winner's deck
 				battleCards = addBattleCards(winner, 4, arr1, arr2)
 				// Replace the full decks with the newly ordered decks
 				arr1 = battleCards[0]
@@ -63,9 +61,7 @@ const battle = (arr1, arr2, breakOut) => {
 
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
 				winner = battle(arr1.slice(0 + 3), arr2.slice(0 + 3))
-				// Exit the loop if the result is a tie
-				if (winner === 0) result = 0
-				// Otherwise add the necessary cards to the winner's deck
+				// Add the necessary cards to the winner's deck
 				battleCards = addBattleCards(winner, 3, arr1, arr2, true)
 				// Replace the full decks with the newly ordered decks
 				arr1.concat(battleCards[0])
@@ -78,9 +74,7 @@ const battle = (arr1, arr2, breakOut) => {
 
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
 				winner = battle(arr1.slice(0 + 2), arr2.slice(0 + 2))
-				// Exit the loop if the result is a tie
-				if (winner === 0) result = 0
-				// Otherwise add the necessary cards to the winner's deck
+				// Add the necessary cards to the winner's deck
 				battleCards = addBattleCards(winner, 2, arr1, arr2, true)
 				// Replace the full decks with the newly ordered decks
 				arr1.concat(battleCards[0])
@@ -93,10 +87,9 @@ const battle = (arr1, arr2, breakOut) => {
 				
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
 				winner = battle(arr1.slice(0 + 1), arr2.slice(0 + 1)) 
-				// Exit the loop if the result is a tie
-				if (winner === 0) result = 0
-				// Replace the full decks with the newly ordered decks
+				// Add the necessary cards to the winner's deck
 				battleCards = addBattleCards(winner, 1, arr1, arr2, true)
+				// Replace the full decks with the newly ordered decks
 				arr1.concat(battleCards[0])
 				arr2.concat(battleCards[1])
 				// Exit the loop when a winner is resolved from recursive battles
