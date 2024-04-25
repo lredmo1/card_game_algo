@@ -121,7 +121,7 @@ const addBattleCards = (result, num, playerOne, playerTwo) => {
 		playerOne.push(playerOne[i])
 	  }
 
-	// Next add Player 2's face down cards then face up card to the bottom of their deck.
+	// Next add Player 2's face down cards then face up card to the bottom of Player 1's deck.
 	  for (let i = 1; i <= num; i++) {
 		playerOne.push(playerTwo[i])
 	  }
