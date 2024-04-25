@@ -4,84 +4,91 @@
   
 	let result;
 	let battleCards;
-	let i = 0;
   
 	while (result === undefined) {
-	  if (arr1.length == 0 && arr2.length == 0) {
-		
-		result = 0
-	  } else if (arr1.length === 0) {
-		
-		result = 2
-	  } else if (arr2.length === 0) {
-	   
-		result = 1
-	  } else if (arr1[i] > arr2[i]) {
-		
-		arr1.push(arr1[i], arr2[i])
-		arr1.splice(i, 1)
-		arr2.splice(i, 1)
-		if (breakOut) return 1 
-	  } else if (arr1[i] < arr2[i]) {
-		
-		arr2.push(arr2[i], arr1[i])
-		arr1.splice(i, 1)
-		arr2.splice(i, 1)
-		
-		if (breakOut) return 2
-	  } else if (arr1[i] == arr2[i]) {
-		
-		if (arr1.slice(i + 1).length >= 4 && arr2.slice(i + 1).length >= 4) {
-		  
-		  winner = battle(arr1.slice(i + 4), arr2.slice(i + 4), true)
-		  
-		  if (winner === 0) {
+
+		// If both players have no cards, return 0 to indicate a tie	
+		if (arr1.length == 0 && arr2.length == 0) {
+
 			result = 0
-		  }
-		  battleCards = addBattleCards(winner, 4, arr1, arr2)
-		  
-		  arr1 = battleCards[0]
-		  arr2 = battleCards[1]
-		  
-		  result = winner
-		} else if (arr1.slice(i + 1).length >= 3 && arr2.slice(i + 1).length >= 3) {
-		  
-		  winner = battle(arr1.slice(i + 3), arr2.slice(i + 3))
-		  if (winner === 0) {
+
+		// If Player 1 has no cards, return 2 to indicate Player 2 has won	
+		} else if (arr1.length === 0) {
+
+			result = 2
+
+		// If Player 2 has no cards, return 1 to indicate Player 1 has won	
+		} else if (arr2.length === 0) {
+
+			result = 1
+
+		// If Player 1's card is greater than Player 2's card, add both cards to the bottom of Player 1's deck and remove from the top of both players decks	
+		} else if (arr1[0] > arr2[0]) {
+		
+			arr1.push(arr1[0], arr2[0])
+			arr1.splice(0, 1)
+			arr2.splice(0, 1)
+
+			// If a true value has been passed into the recursive use of the function, exit the loop because Player 1 has one the war
+			if (breakOut) return 1 
+		
+		// If Player 1's card is greater than Player 2's card, add both cards to the bottom of Player 1's deck and remove from the top of both players decks	
+		} else if (arr1[0] < arr2[0]) {
+		
+			arr2.push(arr2[0], arr1[0])
+			arr1.splice(0, 1)
+			arr2.splice(0, 1)
+			
+			// If a true value has been passed into the recursive use of the function, exit the loop because Player 1 has one the war
+			if (breakOut) return 2
+		
+		// If players have equal cards, initiate a war	
+		} else if (arr1[0] == arr2[0]) {
+		
+		// If both players have at least four cards remaining
+		if (arr1.slice(0 + 1).length >= 4 && arr2.slice(0 + 1).length >= 4) {
+			
+			winner = battle(arr1.slice(0 + 4), arr2.slice(0 + 4), true)
+			if (winner === 0) result = 0
+			battleCards = addBattleCards(winner, 4, arr1, arr2)
+			arr1 = battleCards[0]
+			arr2 = battleCards[1]
+			
+			result = winner
+
+		} else if (arr1.slice(0 + 1).length >= 3 && arr2.slice(0 + 1).length >= 3) {
+			
+			winner = battle(arr1.slice(0 + 3), arr2.slice(0 + 3))
+			if (winner === 0) result = 0
+			battleCards = addBattleCards(winner, 3, arr1, arr2, true)
+			arr1.concat(battleCards[0])
+			arr2.concat(battleCards[1])
+			result = winner
+			
+		} else if (arr1.slice(0 + 1).length >= 2 && arr2.slice(0 + 1).length >= 2) {
+			
+			winner = battle(arr1.slice(0 + 2), arr2.slice(0 + 2))
+			if (winner === 0) result = 0
+			battleCards = addBattleCards(winner, 2, arr1, arr2, true)
+			arr1.concat(battleCards[0])
+			arr2.concat(battleCards[1])
+			result = winner
+		} else if (arr1.slice(0 + 1).length >= 1 && arr2.slice(0 + 1).length >= 1) {
+			
+			winner = battle(arr1.slice(0 + 1), arr2.slice(0 + 1)) 
+			if (winner === 0) result = 0
+			battleCards = addBattleCards(winner, 1, arr1, arr2, true)
+			arr1.concat(battleCards[0])
+			arr2.concat(battleCards[1])
+			result = winner
+		} else if (arr1.slice(0 + 1).length >= 0 && arr2.slice(0 + 1).length >= 0) {
+
 			result = 0
-		  }
-		  battleCards = addBattleCards(winner, 3, arr1, arr2, true)
-		  arr1.concat(battleCards[0])
-		  arr2.concat(battleCards[1])
-		  result = winner
-		} else if (arr1.slice(i + 1).length >= 2 && arr2.slice(i + 1).length >= 2) {
-		  
-		  winner = battle(arr1.slice(i + 2), arr2.slice(i + 2))
-		  if (winner === 0) {
-			result = 0
-		  }
-		  battleCards = addBattleCards(winner, 2, arr1, arr2, true)
-		  arr1.concat(battleCards[0])
-		  arr2.concat(battleCards[1])
-		  result = winner
-		} else if (arr1.slice(i + 1).length >= 1 && arr2.slice(i + 1).length >= 1) {
-		  
-		  winner = battle(arr1.slice(i + 1), arr2.slice(i + 1)) 
-		  if (winner === 0) {
-			result = 0
-		  }
-		  battleCards = addBattleCards(winner, 1, arr1, arr2, true)
-		  arr1.concat(battleCards[0])
-		  arr2.concat(battleCards[1])
-		  result = winner
-		} else if (arr1.slice(i + 1).length >= 0 && arr2.slice(i + 1).length >= 0) {
-   
-		  result = 0
 		} 
-	 
-  
+		
+
 		break
-	  }
+		}
 	}
   
   
@@ -89,7 +96,7 @@
   
   }
   
-  // Helper function for adding cards to the bottom of the deck after a War is won
+// Helper function for adding cards to the bottom of the deck after a War is won
 const addBattleCards = (result, num, playerOne, playerTwo) => {
 
 	// If player 1 wins the war, add face down cards then face up card to the bottom of their deck.
