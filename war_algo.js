@@ -47,7 +47,8 @@ const war = (arr1, arr2, breakOut) => {
 			// If both players have at least four cards remaining
 			if (arr1.slice(0 + 1).length >= 4 && arr2.slice(0 + 1).length >= 4) {
 				
-				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
+				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence 
+				// Pass in `true` to indicate the recursion should end after the first battle is won
 				winner = war(arr1.slice(0 + 4), arr2.slice(0 + 4), true)
 				// Add the necessary cards to the winner's deck
 				cardsWon = addCardsWon(winner, 4, arr1, arr2)
@@ -61,6 +62,7 @@ const war = (arr1, arr2, breakOut) => {
 			} else if (arr1.slice(0 + 1).length >= 3 && arr2.slice(0 + 1).length >= 3) {
 
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
+				// Pass in `true` to indicate the recursion should end after the first battle is won
 				winner = war(arr1.slice(0 + 3), arr2.slice(0 + 3))
 				// Add the necessary cards to the winner's deck
 				cardsWon = addCardsWon(winner, 3, arr1, arr2, true)
@@ -74,6 +76,7 @@ const war = (arr1, arr2, breakOut) => {
 			} else if (arr1.slice(0 + 1).length >= 2 && arr2.slice(0 + 1).length >= 2) {
 
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
+				// Pass in `true` to indicate the recursion should end after the first battle is won
 				winner = war(arr1.slice(0 + 2), arr2.slice(0 + 2))
 				// Add the necessary cards to the winner's deck
 				cardsWon = addCardsWon(winner, 2, arr1, arr2, true)
@@ -87,6 +90,7 @@ const war = (arr1, arr2, breakOut) => {
 			} else if (arr1.slice(0 + 1).length >= 1 && arr2.slice(0 + 1).length >= 1) {
 				
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
+				// Pass in `true` to indicate the recursion should end after the first battle is won
 				winner = war(arr1.slice(0 + 1), arr2.slice(0 + 1)) 
 				// Add the necessary cards to the winner's deck
 				cardsWon = addCardsWon(winner, 1, arr1, arr2, true)
