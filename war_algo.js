@@ -6,13 +6,8 @@ const war = (arr1, arr2, breakOut) => {
   
 	while (result === undefined) {
 
-		// If both players have no cards, set the result to 0 to exit the while loop and indicate a tie	
-		if (arr1.length == 0 && arr2.length == 0) {
-
-			result = 0
-
-		// If Player 1 has no cards, set the result to 2 to exit the while loop and indicate Player 2 has won	
-		} else if (arr1.length === 0) {
+		// If Player 1 has no cards, set the result to 2 to exit the while loop and indicate Player 2 has won
+		if (arr1.length === 0) {
 
 			result = 2
 
