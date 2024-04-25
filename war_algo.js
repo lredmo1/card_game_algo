@@ -1,4 +1,5 @@
-const battle = (arr1, arr2, breakOut) => {
+// The card game War
+const war = (arr1, arr2, breakOut) => {
   
 	let result;
 	let battleCards;
@@ -47,7 +48,7 @@ const battle = (arr1, arr2, breakOut) => {
 			if (arr1.slice(0 + 1).length >= 4 && arr2.slice(0 + 1).length >= 4) {
 				
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
-				winner = battle(arr1.slice(0 + 4), arr2.slice(0 + 4), true)
+				winner = war(arr1.slice(0 + 4), arr2.slice(0 + 4), true)
 				// Add the necessary cards to the winner's deck
 				battleCards = addBattleCards(winner, 4, arr1, arr2)
 				// Replace the full decks with the newly ordered decks
@@ -60,7 +61,7 @@ const battle = (arr1, arr2, breakOut) => {
 			} else if (arr1.slice(0 + 1).length >= 3 && arr2.slice(0 + 1).length >= 3) {
 
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
-				winner = battle(arr1.slice(0 + 3), arr2.slice(0 + 3))
+				winner = war(arr1.slice(0 + 3), arr2.slice(0 + 3))
 				// Add the necessary cards to the winner's deck
 				battleCards = addBattleCards(winner, 3, arr1, arr2, true)
 				// Replace the full decks with the newly ordered decks
@@ -73,7 +74,7 @@ const battle = (arr1, arr2, breakOut) => {
 			} else if (arr1.slice(0 + 1).length >= 2 && arr2.slice(0 + 1).length >= 2) {
 
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
-				winner = battle(arr1.slice(0 + 2), arr2.slice(0 + 2))
+				winner = war(arr1.slice(0 + 2), arr2.slice(0 + 2))
 				// Add the necessary cards to the winner's deck
 				battleCards = addBattleCards(winner, 2, arr1, arr2, true)
 				// Replace the full decks with the newly ordered decks
@@ -86,7 +87,7 @@ const battle = (arr1, arr2, breakOut) => {
 			} else if (arr1.slice(0 + 1).length >= 1 && arr2.slice(0 + 1).length >= 1) {
 				
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
-				winner = battle(arr1.slice(0 + 1), arr2.slice(0 + 1)) 
+				winner = war(arr1.slice(0 + 1), arr2.slice(0 + 1)) 
 				// Add the necessary cards to the winner's deck
 				battleCards = addBattleCards(winner, 1, arr1, arr2, true)
 				// Replace the full decks with the newly ordered decks
@@ -163,6 +164,6 @@ const playerOneCards3 = [1, 2, 3, 4, 5,  6, 7, 8, 9, 10, 11, 12, 13, 1, 2, 3, 4,
 const playerTwoCards3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 
 
-console.log(battle(playerOneCards1,  playerTwoCards1)) // expect 1
-console.log(battle(playerOneCards2, playerTwoCards2)) // expect 2
-console.log(battle(playerOneCards3, playerTwoCards3)) // expect 3
+console.log(war(playerOneCards1,  playerTwoCards1)) // expect 1
+console.log(war(playerOneCards2, playerTwoCards2)) // expect 2
+console.log(war(playerOneCards3, playerTwoCards3)) // expect 3
