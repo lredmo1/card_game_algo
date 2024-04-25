@@ -1,6 +1,4 @@
-
-  
-  const battle = (arr1, arr2, breakOut) => {
+const battle = (arr1, arr2, breakOut) => {
   
 	let result;
 	let battleCards;
@@ -118,7 +116,7 @@
 	// Return 1 for a Player 1 win, 2 for a Player 2 Win, or 0 for a tie.
 	return result 
   
-  }
+}
   
 // Helper function for adding cards to the bottom of the deck after a War is won
 const addBattleCards = (result, num, playerOne, playerTwo) => {
@@ -162,7 +160,7 @@ const addBattleCards = (result, num, playerOne, playerTwo) => {
 	// Return the decks in their new order
 	return [playerOne, playerTwo]
 
-  }
+}
 
 
 // Test Cases  
