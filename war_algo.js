@@ -48,7 +48,7 @@ const battle = (arr1, arr2, breakOut) => {
 				
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
 				winner = battle(arr1.slice(0 + 4), arr2.slice(0 + 4), true)
-				// Exit the loop of the result is a tie
+				// Exit the loop if the result is a tie
 				if (winner === 0) result = 0
 				// Otherwise add the necessary cards to the winner's deck
 				battleCards = addBattleCards(winner, 4, arr1, arr2)
@@ -63,7 +63,7 @@ const battle = (arr1, arr2, breakOut) => {
 
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
 				winner = battle(arr1.slice(0 + 3), arr2.slice(0 + 3))
-				// Exit the loop of the result is a tie
+				// Exit the loop if the result is a tie
 				if (winner === 0) result = 0
 				// Otherwise add the necessary cards to the winner's deck
 				battleCards = addBattleCards(winner, 3, arr1, arr2, true)
@@ -78,7 +78,7 @@ const battle = (arr1, arr2, breakOut) => {
 
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
 				winner = battle(arr1.slice(0 + 2), arr2.slice(0 + 2))
-				// Exit the loop of the result is a tie
+				// Exit the loop if the result is a tie
 				if (winner === 0) result = 0
 				// Otherwise add the necessary cards to the winner's deck
 				battleCards = addBattleCards(winner, 2, arr1, arr2, true)
@@ -93,7 +93,7 @@ const battle = (arr1, arr2, breakOut) => {
 				
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
 				winner = battle(arr1.slice(0 + 1), arr2.slice(0 + 1)) 
-				// Exit the loop of the result is a tie
+				// Exit the loop if the result is a tie
 				if (winner === 0) result = 0
 				// Replace the full decks with the newly ordered decks
 				battleCards = addBattleCards(winner, 1, arr1, arr2, true)
