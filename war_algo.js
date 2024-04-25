@@ -2,7 +2,7 @@
 const war = (arr1, arr2, breakOut) => {
   
 	let result;
-	let battleCards;
+	let cardsWon;
   
 	while (result === undefined) {
 
@@ -50,10 +50,10 @@ const war = (arr1, arr2, breakOut) => {
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
 				winner = war(arr1.slice(0 + 4), arr2.slice(0 + 4), true)
 				// Add the necessary cards to the winner's deck
-				battleCards = addBattleCards(winner, 4, arr1, arr2)
+				cardsWon = addCardsWon(winner, 4, arr1, arr2)
 				// Replace the full decks with the newly ordered decks
-				arr1 = battleCards[0]
-				arr2 = battleCards[1]
+				arr1 = cardsWon[0]
+				arr2 = cardsWon[1]
 				// Exit the loop when a winner is resolved from recursive battles
 				result = winner
 
@@ -63,10 +63,10 @@ const war = (arr1, arr2, breakOut) => {
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
 				winner = war(arr1.slice(0 + 3), arr2.slice(0 + 3))
 				// Add the necessary cards to the winner's deck
-				battleCards = addBattleCards(winner, 3, arr1, arr2, true)
+				cardsWon = addCardsWon(winner, 3, arr1, arr2, true)
 				// Replace the full decks with the newly ordered decks
-				arr1.concat(battleCards[0])
-				arr2.concat(battleCards[1])
+				arr1.concat(cardsWon[0])
+				arr2.concat(cardsWon[1])
 				// Exit the loop when a winner is resolved from recursive battles
 				result = winner
 				
@@ -76,10 +76,10 @@ const war = (arr1, arr2, breakOut) => {
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
 				winner = war(arr1.slice(0 + 2), arr2.slice(0 + 2))
 				// Add the necessary cards to the winner's deck
-				battleCards = addBattleCards(winner, 2, arr1, arr2, true)
+				cardsWon = addCardsWon(winner, 2, arr1, arr2, true)
 				// Replace the full decks with the newly ordered decks
-				arr1.concat(battleCards[0])
-				arr2.concat(battleCards[1])
+				arr1.concat(cardsWon[0])
+				arr2.concat(cardsWon[1])
 				// Exit the loop when a winner is resolved from recursive battles
 				result = winner
 
@@ -89,10 +89,10 @@ const war = (arr1, arr2, breakOut) => {
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
 				winner = war(arr1.slice(0 + 1), arr2.slice(0 + 1)) 
 				// Add the necessary cards to the winner's deck
-				battleCards = addBattleCards(winner, 1, arr1, arr2, true)
+				cardsWon = addCardsWon(winner, 1, arr1, arr2, true)
 				// Replace the full decks with the newly ordered decks
-				arr1.concat(battleCards[0])
-				arr2.concat(battleCards[1])
+				arr1.concat(cardsWon[0])
+				arr2.concat(cardsWon[1])
 				// Exit the loop when a winner is resolved from recursive battles
 				result = winner
 			
@@ -113,7 +113,7 @@ const war = (arr1, arr2, breakOut) => {
 }
   
 // Helper function for adding cards to the bottom of the deck after a War is won
-const addBattleCards = (result, num, playerOne, playerTwo) => {
+const addCardsWon = (result, num, playerOne, playerTwo) => {
 
 	// If Player 1 wins the war, add face down cards then face up card to the bottom of their deck and remove from the top of the deck
 	if (result === 1) {
