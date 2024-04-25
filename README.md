@@ -17,13 +17,15 @@ This process is repeated until one player runs out of cards, at which point the 
 
 Both players place their next three cards face down, then a card face-up. The owner of the higher face-up card wins the war and adds all cards on the table to the bottom of their deck. If the face-up cards are again equal then the war repeats with another set of face-down/up cards, until one player's face-up card is higher than their opponent's, or both players run out of cards
 
-If, when a war begins
+If, when a war begins...
 
 either player does not have enough cards for the war, both players reduce the number of cards to allow the war to complete (e.g. if P2 has only three cards remaining, both players play two cards down and one card up. If P2 has only one card remaining, no cards are played face-down and each player only plays one card up).
+
 either player has no cards remaining, the other player wins.
+
 both players have no cards remaining, the game is a draw (this is exceptionally rare in random games).
 
-### Post-battle/war
+### Post-Battle/War
 
 For consistency (so we all end up with the same result for the same input), cards used in a battle or war should be added to the bottom of the winner's deck in a particular order.
 
