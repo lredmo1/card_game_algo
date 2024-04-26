@@ -45,7 +45,7 @@ const war = (arr1, arr2, breakOut) => {
 				
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence 
 				// Pass in `true` to indicate the recursion should end after the first battle is won
-				winner = war(arr1.slice(0 + 4), arr2.slice(0 + 4), true)
+				winner = war(arr1.slice(4), arr2.slice(4), true)
 				// Add the necessary cards to the winner's deck
 				cardsWon = addCardsWon(winner, 4, arr1, arr2)
 				// Replace the full decks with the newly ordered decks
@@ -59,7 +59,7 @@ const war = (arr1, arr2, breakOut) => {
 
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
 				// Pass in `true` to indicate the recursion should end after the first battle is won
-				winner = war(arr1.slice(0 + 3), arr2.slice(0 + 3))
+				winner = war(arr1.slice(3), arr2.slice(3))
 				// Add the necessary cards to the winner's deck
 				cardsWon = addCardsWon(winner, 3, arr1, arr2, true)
 				// Replace the full decks with the newly ordered decks
@@ -73,7 +73,7 @@ const war = (arr1, arr2, breakOut) => {
 
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
 				// Pass in `true` to indicate the recursion should end after the first battle is won
-				winner = war(arr1.slice(0 + 2), arr2.slice(0 + 2))
+				winner = war(arr1.slice(2), arr2.slice(2))
 				// Add the necessary cards to the winner's deck
 				cardsWon = addCardsWon(winner, 2, arr1, arr2, true)
 				// Replace the full decks with the newly ordered decks
@@ -83,7 +83,7 @@ const war = (arr1, arr2, breakOut) => {
 				result = winner
 
 			// If one player has only one card remaining
-			} else if (arr1.slice(0 + 1).length >= 1 && arr2.slice(0 + 1).length >= 1) {
+			} else if (arr1.slice(1).length >= 1 && arr2.slice(1).length >= 1) {
 				
 				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
 				// Pass in `true` to indicate the recursion should end after the first battle is won
