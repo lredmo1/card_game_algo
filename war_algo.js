@@ -1,8 +1,9 @@
 // The card game War
 const war = (arr1, arr2, breakOut) => {
   
-	let result;
-	let cardsWon;
+	let result
+	let winner
+	let cardsWon
   
 	while (result === undefined) {
 
@@ -37,7 +38,7 @@ const war = (arr1, arr2, breakOut) => {
 			if (breakOut) return 2
 		
 		// If players have equal cards, initiate a war	
-		} else if (arr1[0] == arr2[0]) {
+		} else if (arr1[0] === arr2[0]) {
 		
 			// If both players have at least four cards remaining
 			if (arr1.slice(0 + 1).length >= 4 && arr2.slice(0 + 1).length >= 4) {
@@ -118,31 +119,31 @@ const addCardsWon = (result, num, playerOne, playerTwo) => {
 	if (result === 1) {
 	  
 	  for (let i = 1; i <= num; i++) {
-		playerOne.push(playerOne.splice(0, i))
+		playerOne.push(playerOne[i])
 	  }
 
 	// Next add Player 2's face down cards then face up card to the bottom of Player 1's deck and remove from the top of Player 2's deck
 	  for (let i = 1; i <= num; i++) {
-		playerOne.push(playerTwo.splice(0, i))
+		playerOne.push(playerTwo.push[i])
 	  }
 
 	// Then add the original equal cards that triggered the war to the bottom of Player 1's deck
-	  playerOne.push(playerOne[0])
-	  playerOne.push(playerTwo[0])
+		playerOne.push(playerOne[0])
+		playerOne.push(playerTwo[0])
 	
 	// If Player 2 wins the war, follow the same process but add the cards to the bottom of Player 2's deck  
 	} else if (result === 2) {
 	  
 	  for (let i = 1; i <= num; i++) {
-		playerTwo.push(playerTwo.splice(0, i))
+		playerTwo.push(playerTwo.push[i])
 	  }
 
 	  for (let i = 1; i <= num; i++) {
-		playerTwo.push(playerOne.splice(0, i))
+		playerTwo.push(playerOne.push[i])
 	  }
 
-	  playerTwo.push(playerTwo[0])
-	  playerTwo.push(playerOne[0])
+	  	playerTwo.push(playerTwo[0])
+	  	playerTwo.push(playerOne[0])
 	 
 	}
 
