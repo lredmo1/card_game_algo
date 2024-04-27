@@ -43,16 +43,7 @@ const war = (arr1, arr2, breakOut) => {
 			// If both players have at least four cards remaining
 			if (arr1.slice(0 + 1).length >= 4 && arr2.slice(0 + 1).length >= 4) {
 				
-				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence 
-				// Pass in `true` to indicate the recursion should end after the first battle is won
-				winner = war(arr1.slice(4), arr2.slice(4), true)
-				// Add the necessary cards to the winner's deck
-				cardsWon = addCardsWon(winner, 4, arr1, arr2)
-				// Replace the full decks with the newly ordered decks
-				arr1 = cardsWon[0]
-				arr2 = cardsWon[1]
-				// Exit the loop when a winner is resolved from recursive battles
-				result = winner
+				result = handleWar(arr1, arr2, 4)
 
 			// If one player has only three cards remaining
 			} else if (arr1.slice(0 + 1).length >= 3 && arr2.slice(0 + 1).length >= 3) {
@@ -111,7 +102,22 @@ const war = (arr1, arr2, breakOut) => {
 	return result 
   
 }
-  
+
+const handleWar = (playerOne, playerTwo, count) => {
+
+	// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
+	// Pass in `true` to indicate the recursion should end after the first battle is won
+	winner = war(playerOne.slice(count), playerTwo.slice(count))
+	// Add the necessary cards to the winner's deck
+	cardsWon = addCardsWon(winner, count, playerOne, playerTwo, true)
+	// Replace the full decks with the newly ordered decks
+	playerOne.concat(cardsWon[0])
+	playerTwo.concat(cardsWon[1])
+	// Exit the loop when a winner is resolved from recursive battles
+	return winner
+
+}
+
 // Helper function for adding cards to the bottom of the deck after a War is won
 const addCardsWon = (result, num, playerOne, playerTwo) => {
 
@@ -166,4 +172,4 @@ const playerTwoCards3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1, 2, 3, 4, 
 
 console.log(war(playerOneCards1,  playerTwoCards1)) // expect 1
 console.log(war(playerOneCards2, playerTwoCards2)) // expect 2
-console.log(war(playerOneCards3, playerTwoCards3)) // expect 3
+console.log(war(playerOneCards3, playerTwoCards3)) // expect 0
