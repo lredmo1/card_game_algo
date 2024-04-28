@@ -166,4 +166,4 @@ const playerTwoCards3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1, 2, 3, 4, 
 
 console.log(war(playerOneCards1,  playerTwoCards1)) // expect 1
 console.log(war(playerOneCards2, playerTwoCards2)) // expect 2
-console.log(war(playerOneCards3, playerTwoCards3)) // expect 3
+console.log(war(playerOneCards3, playerTwoCards3)) // expect 0
