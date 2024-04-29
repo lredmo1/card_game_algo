@@ -37,19 +37,19 @@ const war = (playerOne, playerTwo, breakOut) => {
 		} else if (playerOne[0] === playerTwo[0]) {
 		
 			// If both players have at least four cards remaining
-			if (playerOne.slice(0 + 1).length >= 4 && playerTwo.slice(0 + 1).length >= 4) {
+			if (playerOne.slice(1).length >= 4 && playerTwo.slice(1).length >= 4) {
 				
 				// Call the handleWar helperFunction for a war with at least four remaining cards
 				result = handleWar(playerOne, playerTwo, 4)
 
 			// If one player has only three cards remaining
-			} else if (playerOne.slice(0 + 1).length >= 3 && playerTwo.slice(0 + 1).length >= 3) {
+			} else if (playerOne.slice(1).length >= 3 && playerTwo.slice(1).length >= 3) {
 				
 				// Call the handleWar helperFunction for a war with at least three remaining cards
 				result = handleWar(playerOne, playerTwo, 3)
 				
 			// If one player has only two cards remaining
-			} else if (playerOne.slice(0 + 1).length >= 2 && playerTwo.slice(0 + 1).length >= 2) {
+			} else if (playerOne.slice(1).length >= 2 && playerTwo.slice(1).length >= 2) {
 
 				// Call the handleWar helperFunction for a war with at least two remaining cards
 				result = handleWar(playerOne, playerTwo, 2)
