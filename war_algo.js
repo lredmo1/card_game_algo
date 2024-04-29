@@ -1,98 +1,64 @@
 // The card game War
-const war = (arr1, arr2, breakOut) => {
+const war = (playerOne, playerTwo, breakOut) => {
   
 	let result
-	let winner
-	let cardsWon
   
 	while (result === undefined) {
 
 		// If Player 1 has no cards, set the result to 2 to exit the while loop and indicate Player 2 has won
-		if (arr1.length === 0) {
+		if (playerOne.length === 0) {
 
 			result = 2
 
 		// If Player 2 has no cards, set the result to 1 to exit the while loop and indicate Player 1 has won	
-		} else if (arr2.length === 0) {
+		} else if (playerTwo.length === 0) {
 
 			result = 1
 
 		// If Player 1's card is greater than Player 2's card
-		} else if (arr1[0] > arr2[0]) {
+		} else if (playerOne[0] > playerTwo[0]) {
 			
 			// Add both cards to the bottom of Player 1's deck, remove from the top of both players decks, and continue the game from the start	
-			arr1.push(arr1.splice(0, 1)[0], arr2.splice(0, 1)[0])
+			playerOne.push(playerOne.splice(0, 1)[0], playerTwo.splice(0, 1)[0])
 
 			// If a true value has been passed into the recursive use of the function, exit the loop because Player 1 has won  the war
 			if (breakOut) return 1 
 		
 		// If Player 2's card is greater than Player 1's card
-		} else if (arr1[0] < arr2[0]) {
+		} else if (playerOne[0] < playerTwo[0]) {
 		
 			// Add both cards to the bottom of Player 2's deck, remove from the top of both players decks, and continue the game from the start
-			arr2.push(arr2.splice(0, 1)[0], arr1.splice(0, 1)[0])
+			playerTwo.push(playerTwo.splice(0, 1)[0], playerOne.splice(0, 1)[0])
 			
 			// If a true value has been passed into the recursive use of the function, exit the loop because Player 1 has won the war
 			if (breakOut) return 2
 		
 		// If players have equal cards, initiate a war	
-		} else if (arr1[0] === arr2[0]) {
+		} else if (playerOne[0] === playerTwo[0]) {
 		
 			// If both players have at least four cards remaining
-			if (arr1.slice(0 + 1).length >= 4 && arr2.slice(0 + 1).length >= 4) {
+			if (playerOne.slice(0 + 1).length >= 4 && playerTwo.slice(0 + 1).length >= 4) {
 				
-				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence 
-				// Pass in `true` to indicate the recursion should end after the first battle is won
-				winner = war(arr1.slice(4), arr2.slice(4), true)
-				// Add the necessary cards to the winner's deck
-				cardsWon = addCardsWon(winner, 4, arr1, arr2)
-				// Replace the full decks with the newly ordered decks
-				arr1 = cardsWon[0]
-				arr2 = cardsWon[1]
-				// Exit the loop when a winner is resolved from recursive battles
-				result = winner
+				// Call the handleWar helperFunction for a war with at least four remaining cards
+				result = warOutcome = handleWar(playerOne, playerTwo, 4)
 
 			// If one player has only three cards remaining
-			} else if (arr1.slice(0 + 1).length >= 3 && arr2.slice(0 + 1).length >= 3) {
-
-				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
-				// Pass in `true` to indicate the recursion should end after the first battle is won
-				winner = war(arr1.slice(3), arr2.slice(3))
-				// Add the necessary cards to the winner's deck
-				cardsWon = addCardsWon(winner, 3, arr1, arr2, true)
-				// Replace the full decks with the newly ordered decks
-				arr1.concat(cardsWon[0])
-				arr2.concat(cardsWon[1])
-				// Exit the loop when a winner is resolved from recursive battles
-				result = winner
+			} else if (playerOne.slice(0 + 1).length >= 3 && playerTwo.slice(0 + 1).length >= 3) {
+				
+				// Call the handleWar helperFunction for a war with at least three remaining cards
+				result = warOutcome = handleWar(playerOne, playerTwo, 3)
 				
 			// If one player has only two cards remaining
-			} else if (arr1.slice(0 + 1).length >= 2 && arr2.slice(0 + 1).length >= 2) {
+			} else if (playerOne.slice(0 + 1).length >= 2 && playerTwo.slice(0 + 1).length >= 2) {
 
-				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
-				// Pass in `true` to indicate the recursion should end after the first battle is won
-				winner = war(arr1.slice(2), arr2.slice(2))
-				// Add the necessary cards to the winner's deck
-				cardsWon = addCardsWon(winner, 2, arr1, arr2, true)
-				// Replace the full decks with the newly ordered decks
-				arr1.concat(cardsWon[0])
-				arr2.concat(cardsWon[1])
-				// Exit the loop when a winner is resolved from recursive battles
-				result = winner
+				// Call the handleWar helperFunction for a war with at least two remaining cards
+				result = warOutcome = handleWar(playerOne, playerTwo, 2)
 
 			// If one player has only one card remaining
-			} else if (arr1.slice(1).length >= 1 && arr2.slice(1).length >= 1) {
+			} else if (playerOne.slice(1).length >= 1 && playerTwo.slice(1).length >= 1) {
 				
-				// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence
-				// Pass in `true` to indicate the recursion should end after the first battle is won
-				winner = war(arr1.slice(0 + 1), arr2.slice(0 + 1)) 
-				// Add the necessary cards to the winner's deck
-				cardsWon = addCardsWon(winner, 1, arr1, arr2, true)
-				// Replace the full decks with the newly ordered decks
-				arr1.concat(cardsWon[0])
-				arr2.concat(cardsWon[1])
-				// Exit the loop when a winner is resolved from recursive battles
-				result = winner
+				// Call the handleWar helperFunction for a war with at least one remaining cards
+				result = warOutcome = handleWar(playerOne, playerTwo, 1)
 			
 			// Else, exit the loop and indicate a tie	
 			} else {
@@ -109,7 +75,24 @@ const war = (arr1, arr2, breakOut) => {
 	return result 
   
 }
-  
+
+const handleWar = (playerOne, playerTwo, cardCount) => {
+
+	let winner
+	let cardsWon
+
+	// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence 
+	// Pass in `true` to indicate the recursion should end after the first battle is won
+	winner = war(playerOne.slice(cardCount), playerTwo.slice(cardCount), true)
+
+	// Add the necessary cards to the winner's deck
+	cardsWon = addCardsWon(winner, cardCount, playerOne, playerTwo)
+
+	// Exit the loop when a winner is resolved from recursive battles
+	return winner
+
+}
+
 // Helper function for adding cards to the bottom of the deck after a War is won
 const addCardsWon = (result, num, playerOne, playerTwo) => {
 
