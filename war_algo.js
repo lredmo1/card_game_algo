@@ -40,25 +40,25 @@ const war = (playerOne, playerTwo, breakOut) => {
 			if (playerOne.slice(0 + 1).length >= 4 && playerTwo.slice(0 + 1).length >= 4) {
 				
 				// Call the handleWar helperFunction for a war with at least four remaining cards
-				result = warOutcome = handleWar(playerOne, playerTwo, 4)
+				result = handleWar(playerOne, playerTwo, 4)
 
 			// If one player has only three cards remaining
 			} else if (playerOne.slice(0 + 1).length >= 3 && playerTwo.slice(0 + 1).length >= 3) {
 				
 				// Call the handleWar helperFunction for a war with at least three remaining cards
-				result = warOutcome = handleWar(playerOne, playerTwo, 3)
+				result = handleWar(playerOne, playerTwo, 3)
 				
 			// If one player has only two cards remaining
 			} else if (playerOne.slice(0 + 1).length >= 2 && playerTwo.slice(0 + 1).length >= 2) {
 
 				// Call the handleWar helperFunction for a war with at least two remaining cards
-				result = warOutcome = handleWar(playerOne, playerTwo, 2)
+				result = handleWar(playerOne, playerTwo, 2)
 
 			// If one player has only one card remaining
 			} else if (playerOne.slice(1).length >= 1 && playerTwo.slice(1).length >= 1) {
 				
 				// Call the handleWar helperFunction for a war with at least one remaining cards
-				result = warOutcome = handleWar(playerOne, playerTwo, 1)
+				result = handleWar(playerOne, playerTwo, 1)
 			
 			// Else, exit the loop and indicate a tie	
 			} else {
