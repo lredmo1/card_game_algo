@@ -20,9 +20,7 @@ const war = (arr1, arr2, breakOut) => {
 		// If Player 1's card is greater than Player 2's card, add both cards to the bottom of Player 1's deck, remove from the top of both players decks, and continue the game from the top	
 		} else if (arr1[0] > arr2[0]) {
 		
-			arr1.push(arr1[0], arr2[0])
-			arr1.splice(0, 1)
-			arr2.splice(0, 1)
+			arr1.push(arr1.splice(0, 1)[0], arr2.splice(0, 1)[0])
 
 			// If a true value has been passed into the recursive use of the function, exit the loop because Player 1 has won  the war
 			if (breakOut) return 1 
@@ -30,9 +28,7 @@ const war = (arr1, arr2, breakOut) => {
 		// If Player 2's card is greater than Player 1's card, add both cards to the bottom of Player 2's deck, remove from the top of both players decks, and continue the game from the top	
 		} else if (arr1[0] < arr2[0]) {
 		
-			arr2.push(arr2[0], arr1[0])
-			arr1.splice(0, 1)
-			arr2.splice(0, 1)
+			arr2.push(arr2.splice(0, 1)[0], arr1.splice(0, 1)[0])
 			
 			// If a true value has been passed into the recursive use of the function, exit the loop because Player 1 has won the war
 			if (breakOut) return 2
