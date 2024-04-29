@@ -135,7 +135,6 @@ const addCardsWon = (result, num, playerOne, playerTwo) => {
 
 }
 
-module.exports = {war, handleWar, addCardsWon};
 
 // Test Cases  
 const playerOneCards1 = [5, 1, 13, 10, 11, 3, 2, 10, 4, 12, 5, 11, 10, 5, 7, 6, 6, 11, 9, 6, 3, 13, 6, 1, 8, 1]
@@ -147,7 +146,9 @@ const playerTwoCards2 = [9, 10, 7, 9, 5, 2, 6, 1, 11, 11, 7, 9, 3, 4, 8, 3, 4, 8
 const playerOneCards3 = [1, 2, 3, 4, 5,  6, 7, 8, 9, 10, 11, 12, 13, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 const playerTwoCards3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 
-
 console.log(war(playerOneCards1,  playerTwoCards1)) // expect 1
 console.log(war(playerOneCards2, playerTwoCards2)) // expect 2
 console.log(war(playerOneCards3, playerTwoCards3)) // expect 0
+
+
+module.exports = {war, handleWar, addCardsWon};
