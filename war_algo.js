@@ -93,36 +93,41 @@ const handleWar = (playerOne, playerTwo, cardCount) => {
 // Helper function for adding cards to the bottom of the deck after a War is won
 const addCardsWon = (result, num, playerOne, playerTwo) => {
 
-	// If Player 1 wins the war, add face down cards then face up card to the bottom of their deck and remove from the top of the deck
+	// If Player 1 wins the war, add face down cards then face up card to the bottom of their deck
 	if (result === 1) {
 	  
-	  for (let i = 1; i <= num; i++) {
-		playerOne.push(playerOne[i])
-	  }
+		for (let i = 1; i <= num; i++) {
+			playerOne.push(playerOne[i])
+		}
 
-	// Next add Player 2's face down cards then face up card to the bottom of Player 1's deck and remove from the top of Player 2's deck
-	  for (let i = 1; i <= num; i++) {
-		playerOne.push(playerTwo.push[i])
-	  }
+		// Next add Player 2's face down cards then face up card to the bottom of Player 1's
+		for (let i = 1; i <= num; i++) {
+			playerOne.push(playerTwo[i])
+		}
 
-	// Then add the original equal cards that triggered the war to the bottom of Player 1's deck
+		// Then add the original equal cards that triggered the war to the bottom of Player 1's deck
 		playerOne.push(playerOne[0])
 		playerOne.push(playerTwo[0])
+		//And remove the oringal cards, face down cards, and face up cards used in the war from the top of each desk
+		playerOne.splice(0, num + 1)
+		playerTwo.splice(0, num + 1)
 	
 	// If Player 2 wins the war, follow the same process but add the cards to the bottom of Player 2's deck  
 	} else if (result === 2) {
 	  
-	  for (let i = 1; i <= num; i++) {
-		playerTwo.push(playerTwo.push[i])
-	  }
+		for (let i = 1; i <= num; i++) {
+			playerTwo.push(playerTwo[i])
+		}
 
-	  for (let i = 1; i <= num; i++) {
-		playerTwo.push(playerOne.push[i])
-	  }
+		for (let i = 1; i <= num; i++) {
+			playerTwo.push(playerOne[i])
+		}
 
 	  	playerTwo.push(playerTwo[0])
 	  	playerTwo.push(playerOne[0])
-	 
+		playerTwo.splice(0, num + 1)
+		playerOne.splice(0, num + 1)
+
 	}
 
 	// Return the decks in their new order
@@ -130,6 +135,7 @@ const addCardsWon = (result, num, playerOne, playerTwo) => {
 
 }
 
+module.exports = {war, handleWar, addCardsWon};
 
 // Test Cases  
 const playerOneCards1 = [5, 1, 13, 10, 11, 3, 2, 10, 4, 12, 5, 11, 10, 5, 7, 6, 6, 11, 9, 6, 3, 13, 6, 1, 8, 1]

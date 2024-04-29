@@ -1,0 +1,19 @@
+{
+  "name": "jest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "war_algo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lredmo1/card_game_algo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lredmo1/card_game_algo/issues"
+  },
+  "homepage": "https://github.com/lredmo1/card_game_algo#readme"
+}
