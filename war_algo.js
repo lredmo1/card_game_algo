@@ -78,15 +78,12 @@ const war = (playerOne, playerTwo, breakOut) => {
 
 const handleWar = (playerOne, playerTwo, cardCount) => {
 
-	let winner
-	let cardsWon
-
 	// Recursively pass the cards, beginning from the "face up" card, into a new battle sequence 
 	// Pass in `true` to indicate the recursion should end after the first battle is won
-	winner = war(playerOne.slice(cardCount), playerTwo.slice(cardCount), true)
+	const winner = war(playerOne.slice(cardCount), playerTwo.slice(cardCount), true)
 
 	// Add the necessary cards to the winner's deck
-	cardsWon = addCardsWon(winner, cardCount, playerOne, playerTwo)
+	const cardsWon = addCardsWon(winner, cardCount, playerOne, playerTwo)
 
 	// Exit the loop when a winner is resolved from recursive battles
 	return winner
