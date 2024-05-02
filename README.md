@@ -5,10 +5,18 @@
 This algorithm implements the classic card game [War](https://en.wikipedia.org/wiki/War_(card_game)) in JavaScript.
 You can run the three test cases with the commands `node war_algo.js`, `python3 war_algo.py`, and `ruby war_algo.rb` in the terminal. You can run the JavaScript test suite by running `jest` in the terminal.
 
-If you want to try your values and input a unique hand for each player in your terminal...
+If you want to try your values for each player's hand...
 - For Javascript
   - run `node` from the terminal
   - run `.load war_algo.js`
+  - run the function with your own values `war([your values here], [your values here])`
+- For Python
+  - run `python3` from the terminal
+  - run `exec(open('war_algo.py').read())`
+  - run the function with your own values `war([your values here], [your values here])`
+- For Ruby
+  - run `irb` from the terminal
+  - run `load 'war_algo.rb'`
   - run the function with your own values `war([your values here], [your values here])`
 
 
