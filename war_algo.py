@@ -12,7 +12,7 @@ def war(arr1, arr2, breakOut=None):
 			arr1.append(arr1[0])
 			arr1.append(arr2[0])
 			arr1.pop(0)
-			arr2.pop(0)		
+			arr2.pop(0)	
 			if (breakOut):
 				return 1 
 		elif arr1[0] < arr2[0]:
@@ -24,19 +24,19 @@ def war(arr1, arr2, breakOut=None):
 				return 2 
 		elif arr1[0] == arr2[0]:
 			if len(arr1[1:]) >= 4 and len(arr2[1:]) >= 4:
-				winner = war(arr1[1:], arr2[1:], True)
+				winner = war(arr1[4:], arr2[4:], True)
 				cardsWon = addCardsWon(winner, 4, arr1, arr2)
 				arr1 = cardsWon[0]
 				arr2 = cardsWon[1]
 				result = winner
 			elif len(arr1[1:]) >= 3 and len(arr2[1:]) >= 3:
-				winner = war(arr1[1:], arr2[1:], True)
+				winner = war(arr1[3:], arr2[3:], True)
 				cardsWon = addCardsWon(winner, 3, arr1, arr2)
 				arr1 = cardsWon[0]
 				arr2 = cardsWon[1]
 				result = winner
 			elif len(arr1[1:]) >= 2 and len(arr2[1:]) >= 2:
-				winner = war(arr1[1:], arr2[1:], True)
+				winner = war(arr1[2:], arr2[2:], True)
 				cardsWon = addCardsWon(winner, 2, arr1, arr2)
 				arr1 = cardsWon[0]
 				arr2 = cardsWon[1]
@@ -53,21 +53,26 @@ def war(arr1, arr2, breakOut=None):
 	return result
 
 def addCardsWon(result, num, playerOne, playerTwo):
+
 	if result == 1:
-		for val in range(1, num):
-			playerOne.append(playerOne.pop(val))
-		for val in range(1, num):
-			playerOne.append(playerTwo.pop(val))
+		for val in range(1, num + 1):
+			playerOne.append(playerOne[val])
+		for val in range(1, num + 1):
+			playerOne.append(playerTwo[val])
 		playerOne.append(playerOne[0])
 		playerOne.append(playerTwo[0])
+		del playerOne[0: num + 1]
+		del playerTwo[0: num + 1]
 
 	if result == 2:
-		for val in range(1, num):
-			playerTwo.append(playerTwo.pop(val))
-		for val in range(1, num):
-			playerTwo.append(playerOne.pop(val))
+		for val in range(1, num + 1):
+			playerTwo.append(playerTwo[val])
+		for val in range(1, num + 1):
+			playerTwo.append(playerOne[val])
 		playerTwo.append(playerTwo[0])
 		playerTwo.append(playerOne[0])
+		del playerOne[0: num + 1]
+		del playerTwo[0: num + 1]
 
 	return [playerOne, playerTwo]
 
