@@ -83,7 +83,7 @@ const handleWar = (playerOne, playerTwo, cardCount) => {
 	const winner = war(playerOne.slice(cardCount), playerTwo.slice(cardCount), true)
 
 	// Add the necessary cards to the winner's deck
-	const cardsWon = addCardsWon(winner, cardCount, playerOne, playerTwo)
+	addCardsWon(winner, cardCount, playerOne, playerTwo)
 
 	// Exit the loop when a winner is resolved from recursive battles
 	return winner
