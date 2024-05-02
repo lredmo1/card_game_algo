@@ -21,7 +21,7 @@ const war = (playerOne, playerTwo, breakOut) => {
 			// Add both cards to the bottom of Player 1's deck, remove from the top of both players decks, and continue the game from the start	
 			playerOne.push(playerOne.splice(0, 1)[0], playerTwo.splice(0, 1)[0])
 
-			// If a true value has been passed into the recursive use of the function, exit the loop because Player 1 has won  the war
+			// If a true value has been passed into the recursive use of the function, exit the loop because Player 1 has won the war
 			if (breakOut) return 1 
 		
 		// If Player 2's card is greater than Player 1's card
@@ -93,21 +93,22 @@ const handleWar = (playerOne, playerTwo, cardCount) => {
 // Helper function for adding cards to the bottom of the deck after a War is won
 const addCardsWon = (result, num, playerOne, playerTwo) => {
 
-	// If Player 1 wins the war, add face down cards then face up card to the bottom of their deck
+	// If Player 1 wins the war, add their face down cards then face up card to the bottom of their deck
 	if (result === 1) {
 	  
 		for (let i = 1; i <= num; i++) {
 			playerOne.push(playerOne[i])
 		}
 
-		// Next add Player 2's face down cards then face up card to the bottom of Player 1's
+		// Next add Player 2's face down cards then face up card to the bottom of Player 1's deck
 		for (let i = 1; i <= num; i++) {
 			playerOne.push(playerTwo[i])
 		}
 
 		// Then add the original equal cards that triggered the war to the bottom of Player 1's deck
 		playerOne.push(playerOne[0], playerTwo[0])
-		//And remove the oringal cards, face down cards, and face up cards used in the war from the top of each desk
+
+		//And remove the oringal cards, face down cards, and face up cards used in the war from the top of each deck
 		playerOne.splice(0, num + 1)
 		playerTwo.splice(0, num + 1)
 	
