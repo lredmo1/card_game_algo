@@ -1,4 +1,3 @@
-# this solution is still in progress
 def war(player_one, player_two, break_out=None):
 
 	result = None
