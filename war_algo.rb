@@ -1,4 +1,4 @@
-def war(playerOne, playerTwo, breakOut=nil)
+def war playerOne, playerTwo, breakOut=nil
 
 	result = nil
 
@@ -8,16 +8,14 @@ def war(playerOne, playerTwo, breakOut=nil)
 		elsif playerTwo.length == 0
 			result = 1
 		elsif playerOne[0] > playerTwo[0]
-			playerOne.append(playerOne[0])
-			playerOne.append(playerTwo[0])
+			playerOne.push(playerOne[0], playerTwo[0])
 			playerOne.shift()
 			playerTwo.shift()	
 			if breakOut
 				return 1 
 			end
 		elsif playerOne[0] < playerTwo[0]
-			playerTwo.append(playerTwo[0])
-			playerTwo.append(playerOne[0])
+			playerTwo.push(playerTwo[0], playerOne[0])
 			playerOne.shift()
 			playerTwo.shift()
 			if breakOut
@@ -60,12 +58,12 @@ def addCardsWon(result, num, playerOne, playerTwo)
 			playerOne.push(playerTwo[i])
 		end
 
-		playerOne.push(playerOne[0])
-		playerOne.push(playerTwo[0])
+		playerOne.push(playerOne[0], playerTwo[0])
 		playerOne.slice!(0..num + 1)
 		playerTwo.slice!(0..num + 1)
 
 	elsif result == 2
+
 		for i in 1..num
 			playerTwo.push(playerTwo[i])
 		end
@@ -74,12 +72,12 @@ def addCardsWon(result, num, playerOne, playerTwo)
 			playerTwo.push(playerOne[i])
 		end
 
-		playerTwo.push(playerTwo[0])
-	  	playerTwo.push(playerOne[0])
+		playerTwo.push(playerTwo[0], playerOne[0])
 		playerTwo.slice!(0..num + 1)
 		playerOne.slice!(0..num + 1)
 
 	end
+	
 end
 
 
