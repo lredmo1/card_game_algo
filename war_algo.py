@@ -21,24 +21,24 @@ def war(player_one, player_two, break_out=None):
 				return 2 
 		elif player_one[0] == player_two[0]:
 			if len(player_one[1:]) >= 4 and len(player_two[1:]) >= 4:
-				result = handleWar(player_one, player_two, 4)
+				result = handle_war(player_one, player_two, 4)
 			elif len(player_one[1:]) >= 3 and len(player_two[1:]) >= 3:
-				result = handleWar(player_one, player_two, 3)
+				result = handle_war(player_one, player_two, 3)
 			elif len(player_one[1:]) >= 2 and len(player_two[1:]) >= 2:
-				result = handleWar(player_one, player_two, 2)
+				result = handle_war(player_one, player_two, 2)
 			elif len(player_one[1:]) >= 1 and len(player_two[1:]) >= 1:
-				result = handleWar(player_one, player_two, 1)
+				result = handle_war(player_one, player_two, 1)
 			else:
 				result = 0
 
 	return result
 
-def handleWar(player_one, player_two, cardCount):
+def handle_war(player_one, player_two, cardCount):
 	winner = war(player_one[cardCount:], player_two[cardCount:], True)
-	addCardsWon(winner, 1, player_one, player_two)
+	add_cards_won(winner, 1, player_one, player_two)
 	return winner
 
-def addCardsWon(result, num, player_one, player_two):
+def add_cards_won(result, num, player_one, player_two):
 
 	if result == 1:
 		for val in range(1, num + 1):
