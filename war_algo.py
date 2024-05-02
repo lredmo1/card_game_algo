@@ -9,15 +9,13 @@ def war(playerOne, playerTwo, breakOut=None):
 		elif len(playerTwo) == 0:
 			result = 1
 		elif playerOne[0] > playerTwo[0]:
-			playerOne.append(playerOne[0])
-			playerOne.append(playerTwo[0])
+			playerOne.extend((playerOne[0], playerTwo[0]))
 			playerOne.pop(0)
 			playerTwo.pop(0)	
 			if (breakOut):
 				return 1 
 		elif playerOne[0] < playerTwo[0]:
-			playerTwo.append(playerTwo[0])
-			playerTwo.append(playerOne[0])
+			playerTwo.extend((playerTwo[0], playerOne[0]))
 			playerOne.pop(0)
 			playerTwo.pop(0)		
 			if (breakOut):
@@ -48,8 +46,7 @@ def addCardsWon(result, num, playerOne, playerTwo):
 			playerOne.append(playerOne[val])
 		for val in range(1, num + 1):
 			playerOne.append(playerTwo[val])
-		playerOne.append(playerOne[0])
-		playerOne.append(playerTwo[0])
+		playerOne.extend((playerOne[0], playerTwo[0]))
 		del playerOne[0: num + 1]
 		del playerTwo[0: num + 1]
 
@@ -58,8 +55,7 @@ def addCardsWon(result, num, playerOne, playerTwo):
 			playerTwo.append(playerTwo[val])
 		for val in range(1, num + 1):
 			playerTwo.append(playerOne[val])
-		playerTwo.append(playerTwo[0])
-		playerTwo.append(playerOne[0])
+		playerTwo.extend((playerTwo[0], playerOne[0]))
 		del playerOne[0: num + 1]
 		del playerTwo[0: num + 1]
 
