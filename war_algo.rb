@@ -23,13 +23,13 @@ def war player_one, player_two, break_out=nil
 			end
 		elsif player_one[0] == player_two[0]
 			if player_one[1..].length >= 4 && player_two[1..].length >= 4
-				result = handleWar(player_one, player_two, 4)
+				result = handle_war(player_one, player_two, 4)
 			elsif player_one[1..].length >= 3 && player_two[1..].length >= 3
-				result = handleWar(player_one, player_two, 3)
+				result = handle_war(player_one, player_two, 3)
 			elsif player_one[1..].length >= 2 && player_two[1..].length >= 2
-				result = handleWar(player_one, player_two, 2)
+				result = handle_war(player_one, player_two, 2)
 			elsif player_one[1..].length >= 1 && player_two[1..].length >= 1
-				result = handleWar(player_one, player_two, 1)
+				result = handle_war(player_one, player_two, 1)
 			else 
 				result = 0
 			end
@@ -40,13 +40,13 @@ def war player_one, player_two, break_out=nil
 
 end
 
-def handleWar(player_one, player_two, cardCount)
+def handle_war(player_one, player_two, cardCount)
 	winner = war(player_one[cardCount..], player_two[cardCount..], true)
-	addCardsWon(winner, 1, player_one, player_two)
+	add_cards_won(winner, 1, player_one, player_two)
 	return winner
 end
 
-def addCardsWon(result, num, player_one, player_two)
+def add_cards_won(result, num, player_one, player_two)
 
 	if result == 1
 
