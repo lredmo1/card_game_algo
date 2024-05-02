@@ -3,7 +3,7 @@
 
 
 This algorithm implements the classic card game [War](https://en.wikipedia.org/wiki/War_(card_game)) in JavaScript.
-You can run the three test cases with the command `node war_algo.js`, `python3 war_algo.py`, and `ruby war_algo.rb` in the command line. You can run the test suite by running `jest` in the command line.
+You can run the three test cases with the commands `node war_algo.js`, `python3 war_algo.py`, and `ruby war_algo.rb` in the terminal. You can run the test suite by running `jest` in the command line.
 
 
 Below are the instructions given for how to write the algorithm.
