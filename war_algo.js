@@ -106,8 +106,7 @@ const addCardsWon = (result, num, playerOne, playerTwo) => {
 		}
 
 		// Then add the original equal cards that triggered the war to the bottom of Player 1's deck
-		playerOne.push(playerOne[0])
-		playerOne.push(playerTwo[0])
+		playerOne.push(playerOne[0], playerTwo[0])
 		//And remove the oringal cards, face down cards, and face up cards used in the war from the top of each desk
 		playerOne.splice(0, num + 1)
 		playerTwo.splice(0, num + 1)
@@ -123,8 +122,7 @@ const addCardsWon = (result, num, playerOne, playerTwo) => {
 			playerTwo.push(playerOne[i])
 		}
 
-	  	playerTwo.push(playerTwo[0])
-	  	playerTwo.push(playerOne[0])
+	  	playerTwo.push(playerTwo[0], playerOne[0])
 		playerTwo.splice(0, num + 1)
 		playerOne.splice(0, num + 1)
 
