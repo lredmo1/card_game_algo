@@ -39,25 +39,25 @@ const war = (playerOne, playerTwo, breakOut) => {
 			// If both players have at least four cards remaining
 			if (playerOne.slice(1).length >= 4 && playerTwo.slice(1).length >= 4) {
 				
-				// Call the handleWar helperFunction for a war with at least four remaining cards
+				// Call the handleWar helper function for a war with at least four remaining cards
 				result = handleWar(playerOne, playerTwo, 4)
 
 			// If one player has only three cards remaining
 			} else if (playerOne.slice(1).length >= 3 && playerTwo.slice(1).length >= 3) {
 				
-				// Call the handleWar helperFunction for a war with at least three remaining cards
+				// Call the handleWar helper function for a war with at least three remaining cards
 				result = handleWar(playerOne, playerTwo, 3)
 				
 			// If one player has only two cards remaining
 			} else if (playerOne.slice(1).length >= 2 && playerTwo.slice(1).length >= 2) {
 
-				// Call the handleWar helperFunction for a war with at least two remaining cards
+				// Call the handleWar helper function for a war with at least two remaining cards
 				result = handleWar(playerOne, playerTwo, 2)
 
 			// If one player has only one card remaining
 			} else if (playerOne.slice(1).length >= 1 && playerTwo.slice(1).length >= 1) {
 				
-				// Call the handleWar helperFunction for a war with at least one remaining cards
+				// Call the handleWar helper function for a war with at least one remaining cards
 				result = handleWar(playerOne, playerTwo, 1)
 			
 			// Else, exit the loop and indicate a tie	
@@ -90,7 +90,7 @@ const handleWar = (playerOne, playerTwo, cardCount) => {
 
 }
 
-// Helper function for adding cards to the bottom of the deck after a War is won
+// Helper function for adding cards to the bottom of the deck after a war is won
 const addCardsWon = (result, num, playerOne, playerTwo) => {
 
 	// If Player 1 wins the war, add their face down cards then face up card to the bottom of their deck
